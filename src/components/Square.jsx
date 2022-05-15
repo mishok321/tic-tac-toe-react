@@ -3,9 +3,9 @@ import './Square.css';
 
 const Square = () => {
     return (
-        <div>
-            
-        </div>
+        <button className='square'>
+            x
+        </button>
     );
 }
 
