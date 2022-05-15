@@ -2,21 +2,16 @@ import React from 'react';
 import './Board.css'
 import Square from './Square';
 
-const Board = () => {
+const Board = ({ squares, handleClick }) => {
+    const squaresArr = squares.map((square, index) => <Square
+        key={ index }
+        value={ square }
+        handleClick={ (e) => handleClick(index) }
+    />)
+
     return (
         <div className='board'>
-            <Square />
-            <Square />
-            <Square />
-
-            <Square />
-            <Square />
-            <Square />
-            
-            <Square />
-            <Square />
-            <Square />
-
+            {squaresArr}
         </div>
     );
 }
