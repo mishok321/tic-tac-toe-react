@@ -30,11 +30,7 @@ const Game = () => {
     }
 
     const startNewGame = () => {
-        return <button
-            className='start__btn'
-            onClick={() => setBoard(Array(9).fill(''))}>
-                Очистить поле
-            </button>
+        return 
     }
 
     const currentInfoGame = () => {
@@ -44,14 +40,16 @@ const Game = () => {
 
     return (
         <div className='wrapper'>
-            { startNewGame() }
+            <button className='start__btn' onClick={() => setBoard(Array(9).fill(''))}>
+                Очистить поле
+            </button>
+
             <Board 
                 squares = { board }
                 handleClick = { handleClick }
              /> 
-             {isDraw()}
              <p className='game__info'>
-                 { currentInfoGame() }
+                { currentInfoGame() }
              </p>
         </div>
     );
