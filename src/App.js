@@ -1,7 +1,13 @@
-import './App.css';
+import "./App.css";
+import "./components/Game";
+import Game from "./components/Game";
 
 function App() {
-  return <h1>tic-tac-toe game</h1>;
+  return (
+    <>
+      <Game />
+    </>
+  );
 }
 
 export default App;
