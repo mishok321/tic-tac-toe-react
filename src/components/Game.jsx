@@ -12,11 +12,21 @@ const Game = () => {
         const boardCopy = [...board]
         // Определить, был ли клик по ячейке или игра закончена
         if (winner || boardCopy[index]) return null
+        
         // Определить чей ход Х ? О
         boardCopy[index] = xIsNext ? 'X' : 'O'
         // Обновить стейт
         setBoard(boardCopy)
         setXIsNext(!xIsNext)
+    }
+
+    const isDraw = () => {
+        for (let i = 0; i < 9; i++) {
+            if (board[i] === '') {
+                return false
+            }
+        }
+        return true
     }
 
     const startNewGame = () => {
@@ -27,6 +37,11 @@ const Game = () => {
             </button>
     }
 
+    const currentInfoGame = () => {
+        if (isDraw()) return 'Ничья!'
+        return winner ? `Победитель - ${winner}!` : `Сейчас ходит ${xIsNext ? 'X' : 'O'}`
+    }
+
     return (
         <div className='wrapper'>
             { startNewGame() }
@@ -34,8 +49,9 @@ const Game = () => {
                 squares = { board }
                 handleClick = { handleClick }
              /> 
+             {isDraw()}
              <p className='game__info'>
-                 { winner ? `Победитель - ${winner}!` : `Сейчас ходит ${xIsNext ? 'X' : 'O'}` }
+                 { currentInfoGame() }
              </p>
         </div>
     );
