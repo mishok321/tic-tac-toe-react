@@ -1,4 +1,3 @@
-import "./App.css";
 import "./components/Game";
 import Game from "./components/Game";
 

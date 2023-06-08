@@ -10,12 +10,9 @@ const Game = () => {
 
     const handleClick = (index) => {
         const boardCopy = [...board]
-        // Определить, был ли клик по ячейке или игра закончена
         if (winner || boardCopy[index]) return null
         
-        // Определить чей ход Х ? О
         boardCopy[index] = xIsNext ? 'X' : 'O'
-        // Обновить стейт
         setBoard(boardCopy)
         setXIsNext(!xIsNext)
     }
@@ -34,14 +31,14 @@ const Game = () => {
     }
 
     const currentInfoGame = () => {
-        if (isDraw()) return 'Ничья!'
-        return winner ? `Победитель - ${winner}!` : `Сейчас ходит ${xIsNext ? 'X' : 'O'}`
+        if (isDraw()) return 'Draw!'
+        return winner ? `Winner is ${winner}!` : `Next move: ${xIsNext ? 'X' : 'O'}`
     }
 
     return (
         <div className='wrapper'>
             <button className='start__btn' onClick={() => setBoard(Array(9).fill(''))}>
-                Очистить поле
+                Clear Board
             </button>
 
             <Board 
